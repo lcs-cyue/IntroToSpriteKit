@@ -12,14 +12,32 @@ import AVFoundation
 
 class GameScene: SKScene {
     
+  
+    
+    
+    
     // Background music player
     var backgroundMusic: AVAudioPlayer?
     
     // This function runs once to set up the scene
     override func didMove(to view: SKView) {
         
-        // Set the background colour
-        self.backgroundColor = .black
+        
+        //Add the background
+        let bg = SKSpriteNode(imageNamed: "background")
+        bg.position = CGPoint(x: 400, y: 300)
+        self.addChild(bg) 
+        
+        
+        //Add the tree
+        let pineTree = SKSpriteNode(imageNamed: "tree")
+        pineTree.position = CGPoint(x: self.size.width / 2, y: self.size.height - 370)
+        self.addChild(pineTree)
+    
+        
+
+//        // Set the background colour
+//        self.backgroundColor = .black
         
         // Get a reference to the mp3 file in the app bundle
         let backgroundMusicFilePath = Bundle.main.path(forResource: "sleigh-bells-excerpt.mp3", ofType: nil)!
