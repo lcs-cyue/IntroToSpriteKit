@@ -49,26 +49,7 @@ PlaygroundSupport.PlaygroundPage.current.liveView = view
     You should see the character repeatedly making a motion.
  
  */
-//// Create [SKTexture] array
-//var throwFireBallTextures: [SKTexture] = []     // Empty array
-//throwFireBallTextures.append(SKTexture(imageNamed: "sf_fireball_0"))
-//throwFireBallTextures.append(SKTexture(imageNamed: "sf_fireball_1"))
-//throwFireBallTextures.append(SKTexture(imageNamed: "sf_fireball_2"))
-//
-//// Create an action to animate throwing a fireball
-//let throwFireballAnimation = SKAction.animate(with: throwFireBallTextures, timePerFrame: 0.2, resize: true, restore: true)
-//
-//// Wait a bit
-//let actionWaitASecond = SKAction.wait(forDuration: 1)
-//
-//// Make a sequence – throw fireball, then wait
-//var actionThrowFireBallThenWait = SKAction.sequence([throwFireballAnimation, actionWaitASecond])
-//
-//// Repeat the sequence
-//var throwFireBallRepeatedly = SKAction.repeatForever(actionThrowFireBallThenWait)
-//
-//// Cause the character to throw the fireball
-//character.run(throwFireBallRepeatedly)
+
 
 /*:
  Doesn't it look like the character should be throwing a fireball? Let's make that happen.

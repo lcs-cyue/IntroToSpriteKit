@@ -11,11 +11,7 @@ import GameplayKit
 import AVFoundation
 
 class GameScene: SKScene {
-    
   
-    
-    
-    
     // Background music player
     var backgroundMusic: AVAudioPlayer?
     
@@ -24,15 +20,14 @@ class GameScene: SKScene {
         
         
         //Add the background
-        let bg = SKSpriteNode(imageNamed: "background")
+        let bg = SKSpriteNode(imageNamed: "background2")
         bg.position = CGPoint(x: 400, y: 300)
         self.addChild(bg) 
         
-        
-        //Add the tree
-        let pineTree = SKSpriteNode(imageNamed: "tree")
-        pineTree.position = CGPoint(x: self.size.width / 2, y: self.size.height - 370)
-        self.addChild(pineTree)
+        let hat = SKSpriteNode(imageNamed: "hat")
+        hat.position = CGPoint(x: 570, y: 390)
+        self.addChild(hat)
+       
     
         
 
