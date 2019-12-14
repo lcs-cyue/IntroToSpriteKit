@@ -132,8 +132,8 @@ view.showsPhysics = true
 
  */
 
-//// Make an edge loop at the boundaries of the scene
-//scene.physicsBody = SKPhysicsBody(edgeLoopFrom: scene.frame)
+// Make an edge loop at the boundaries of the scene
+scene.physicsBody = SKPhysicsBody(edgeLoopFrom: scene.frame)
 
 /*:
  - Callout(Reflect):
