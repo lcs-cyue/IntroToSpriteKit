@@ -33,9 +33,10 @@ class GameScene: SKScene {
         //Make an edge loop at the boundaries of the scene
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
         
-        //Avoid 2 gifts falling simutaneously / wait
+        //wait
         let actionShortWait = SKAction.wait(forDuration: 0.5)
         let actionOneSecondWait = SKAction.wait(forDuration: 1)
+        let actionThreeSecondWait = SKAction.wait(forDuration: 3)
         
         // Define a vector that describes a leftward movement
         let leftThisMuch = CGVector(dx: -300, dy: 50)
@@ -48,7 +49,7 @@ class GameScene: SKScene {
 
         // Define a movements
         let actionLeftwardMovement = SKAction.move(by: leftThisMuch, duration: 2)
-        let actionRightwardMovement = SKAction.move(by: rightThisMuch, duration: 2)
+        let actionRightwardMovement = SKAction.move(by: rightThisMuch, duration: 3)
         let actionUpwardsMovement = SKAction.move(by: upThisMuch, duration: 3)
 
         // Define a sequence that makes a node wait five seconds, then move left
@@ -67,37 +68,84 @@ class GameScene: SKScene {
         //Add the 1st gift box
         let gift1 = SKSpriteNode(imageNamed: "gift1")
         gift1.position = CGPoint(x: 70, y: self.size.height)
-        self.addChild(gift1)
+        
         
         //Add the 2nd gift box
         let gift2 = SKSpriteNode(imageNamed: "gift2")
-        gift2.position = CGPoint(x: 300, y: self.size.height)
-        self.addChild(gift2)
+        gift2.position = CGPoint(x: 400, y: self.size.height)
+       
         
         //Add the 3rd gift box
         let gift3 = SKSpriteNode(imageNamed: "gift3")
         gift3.position = CGPoint(x: 500, y: self.size.height)
-        self.addChild(gift3)
+       
         
         //Add the 4th gift box
         let gift4 = SKSpriteNode(imageNamed: "gift4")
         gift4.position = CGPoint(x: 350, y: self.size.height)
-        self.addChild(gift3)
+       
+        
+        //Add the 5th gift box
+        let gift5 = SKSpriteNode(imageNamed: "gift5")
+        gift5.position = CGPoint(x: 200, y: self.size.height)
+        
+        
+        //Add the 6th gift box
+        let gift6 = SKSpriteNode(imageNamed: "gift6")
+        gift6.position = CGPoint(x: 500, y: self.size.height)
+        
+        
+        //Add the 7th gift box
+        let gift7 = SKSpriteNode(imageNamed: "gift7")
+        gift7.position = CGPoint(x: 20, y: self.size.height)
+        
+        
+        //Add the 8th gift box
+        let gift8 = SKSpriteNode(imageNamed: "gift8")
+        gift8.position = CGPoint(x: 550, y: self.size.height)
+        
+        
         //Add gravity
         gift1.physicsBody = SKPhysicsBody(circleOfRadius: gift1.size.width * 0.4)
-        gift2.physicsBody = SKPhysicsBody(circleOfRadius: gift1.size.width * 0.5)
-        gift3.physicsBody = SKPhysicsBody(circleOfRadius: gift1.size.width * 0.3)
+        gift2.physicsBody = SKPhysicsBody(circleOfRadius: gift2.size.width * 0.9)
+        gift3.physicsBody = SKPhysicsBody(circleOfRadius: gift3.size.width * 0.3)
+        gift4.physicsBody = SKPhysicsBody(circleOfRadius: gift4.size.width * 0.2)
+        gift5.physicsBody = SKPhysicsBody(circleOfRadius: gift5.size.width * 0.4)
+        gift6.physicsBody = SKPhysicsBody(circleOfRadius: gift6.size.width * 0.3)
+        gift7.physicsBody = SKPhysicsBody(circleOfRadius: gift7.size.width * 0.4)
+        gift8.physicsBody = SKPhysicsBody(circleOfRadius: gift8.size.width * 0.5)
         
         
         // Run the sequence on the gifts
+        func addGifts () {
+            
+        self.addChild(gift1)
+        self.addChild(gift2)
+        self.addChild(gift3)
+        self.addChild(gift4)
+        self.addChild(gift5)
+        self.addChild(gift6)
+        self.addChild(gift7)
+        self.addChild(gift8)
+            
+        }
+        
+        let actionAddGifts = SKAction.run(addGifts)
+        
+        let actionWait = SKAction.wait(forDuration: 2)
+        let sequenceAddGiftsThenWait = SKAction.sequence([actionAddGifts, actionWait])
+        let actionRepeatlyAddGifts = SKAction.repeat(sequenceAddGiftsThenWait, count: 100)
+        self.run(actionRepeatlyAddGifts)
+        
+        //Move the gifts
         gift1.run(sequenceMoveLeftShortDelay)
         gift2.run(sequenceMoveUpShortDelay)
-        gift2.run(sequenceMoveRightShortDelay)
-        
-        
-        
-        
-        
+        gift3.run(sequenceMoveRightShortDelay)
+        gift4.run(sequenceMoveUpShortDelay)
+        gift5.run(sequenceMoveRightShortDelay)
+        gift6.run(sequenceMoveLeftShortDelay)
+        gift7.run(sequenceMoveUpShortDelay)
+        gift8.run(sequenceMoveRightShortDelay)
         
         //Add snow
         if let snow = SKEmitterNode(fileNamed: "snow.sks") {
