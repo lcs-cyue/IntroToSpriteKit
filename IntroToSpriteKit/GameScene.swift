@@ -40,12 +40,12 @@ class GameScene: SKScene {
         title.position = CGPoint(x: self.size.width / 2, y: self.size.height - 70)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-        self.addChild(title)
+            self.addChild(title)
         }
         
         
-    
-
+        
+        
         let question = SKLabelNode(fontNamed: "Helvetica Neue bold")
         question.fontSize = 20
         question.fontColor = .white
@@ -54,7 +54,7 @@ class GameScene: SKScene {
         question.position = CGPoint(x: 450, y: self.size.height / 2)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-        self.addChild(question)
+            self.addChild(question)
         }
         
         
@@ -136,35 +136,35 @@ class GameScene: SKScene {
         
         // Run the sequence on the gifts with delay
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.4) {
-        self.addChild(gift1)
+            self.addChild(gift1)
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-        self.addChild(gift2)
+            self.addChild(gift2)
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.7) {
-        self.addChild(gift3)
+            self.addChild(gift3)
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
-        self.addChild(gift4)
+            self.addChild(gift4)
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-        self.addChild(gift5)
+            self.addChild(gift5)
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.7) {
-        self.addChild(gift6)
+            self.addChild(gift6)
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 6.5) {
-        self.addChild(gift7)
+            self.addChild(gift7)
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 7.2) {
-        self.addChild(gift8)
+            self.addChild(gift8)
         }
         
         //Add gravity
@@ -201,43 +201,75 @@ class GameScene: SKScene {
             self.addChild(fireflies)
         }
         
+        //Add fire
+        DispatchQueue.main.asyncAfter(deadline: .now() + 11.0) {
+        if let fire = SKEmitterNode(fileNamed: "Fire.sks") {
+            fire.position = CGPoint(x: self.size.width / 2 + 100, y: self.size.height / 2)
+            fire.zPosition = 12
+        self.addChild(fire)
+        }
+        }
+        
+        //Add exit words
+        let exw = SKLabelNode(fontNamed: "SignPainter")
+        exw.fontSize = 60
+        exw.fontColor = .black
+        exw.zPosition = 13
+        exw.text = "Brought to you by - Chelsea"
+        exw.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 11.3) {
+            self.addChild(exw)
+        }
+        
+        //Add exit words2
+        let exw2 = SKLabelNode(fontNamed: "SignPainter")
+        exw2.fontSize = 50
+        exw2.fontColor = .black
+        exw2.zPosition = 13
+        exw2.text = "A member of the AP computer science class"
+        exw2.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2 - 100)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 11.3) {
+            self.addChild(exw2)
+        }
         
         //Add penguin
         DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
-        let penguin = SKSpriteNode(imageNamed: "penguin")
-        penguin.position = CGPoint(x: penguin.size.width / 2, y: 300)
-        penguin.physicsBody = SKPhysicsBody(texture: penguin.texture!,alphaThreshold: 0.5,size: penguin.size)
-        self.addChild(penguin)
-        
-        
-        // Animation using the penguin sprites array
-        var walkingTextures: [SKTexture] = []
-        walkingTextures.append(SKTexture(imageNamed: "PR"))
-        walkingTextures.append(SKTexture(imageNamed: "PL"))
-        
-        // Create an action to animate a walking motion  (walkingTextures)
-        let actionWalkingAnimation = SKAction.animate(with: walkingTextures, timePerFrame: 0.2, resize: true, restore: true)
-        
-        // Create an action that moves the penguin forward a "step" where a step is 10 pixels
-        // NOTE: The time interval for moving forward matches the time per frame of the animation
-        let actionMoveForward = SKAction.moveBy(x: 10, y: 0, duration: 0.2)
-        
-        // Repeat the move forward action twice
-        let actionMoveForwardTwice = SKAction.repeat(actionMoveForward, count: 2)
-        
-        // Now, combine the walking animation with the sprite moving forward
-        let actionWalkAndMove = SKAction.group([actionWalkingAnimation, actionMoveForwardTwice])
-        
-        // Repeat the "walk and move" action five times
-        let actionWalkAndMoveFortyTimes = SKAction.repeat(actionWalkAndMove, count: 40)
-        
-        // Make the penguin walk and move forward five times
-        penguin.run(actionWalkAndMoveFortyTimes)
-        
+            let penguin = SKSpriteNode(imageNamed: "penguin")
+            penguin.position = CGPoint(x: penguin.size.width / 2, y: 300)
+            penguin.physicsBody = SKPhysicsBody(texture: penguin.texture!,alphaThreshold: 0.5,size: penguin.size)
+            self.addChild(penguin)
+            
+            
+            // Animation using the penguin sprites array
+            var walkingTextures: [SKTexture] = []
+            walkingTextures.append(SKTexture(imageNamed: "PR"))
+            walkingTextures.append(SKTexture(imageNamed: "PL"))
+            
+            // Create an action to animate a walking motion  (walkingTextures)
+            let actionWalkingAnimation = SKAction.animate(with: walkingTextures, timePerFrame: 0.2, resize: true, restore: true)
+            
+            // Create an action that moves the penguin forward a "step" where a step is 10 pixels
+            // NOTE: The time interval for moving forward matches the time per frame of the animation
+            let actionMoveForward = SKAction.moveBy(x: 10, y: 0, duration: 0.2)
+            
+            // Repeat the move forward action twice
+            let actionMoveForwardTwice = SKAction.repeat(actionMoveForward, count: 2)
+            
+            // Now, combine the walking animation with the sprite moving forward
+            let actionWalkAndMove = SKAction.group([actionWalkingAnimation, actionMoveForwardTwice])
+            
+            // Repeat the "walk and move" action five times
+            let actionWalkAndMoveFortyTimes = SKAction.repeat(actionWalkAndMove, count: 40)
+            
+            // Make the penguin walk and move forward five times
+            penguin.run(actionWalkAndMoveFortyTimes)
+            
         }
         
         //Add penguin's response
-    
+        
         let response = SKLabelNode(fontNamed: "Helvetica Neue bold")
         response.fontSize = 20
         response.fontColor = .yellow
@@ -246,55 +278,55 @@ class GameScene: SKScene {
         response.position = CGPoint(x: self.size.width / 2 - 100, y: 150)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 9.0) {
-        self.addChild(response)
+            self.addChild(response)
         }
         
         //Add penguin's response2
         
-            let response2 = SKLabelNode(fontNamed: "SignPainter")
-            response2.fontSize = 80
-            response2.fontColor = .black
-            response2.zPosition = 11        // Make sure text appears in front of other nodes
-            response2.text = "MERRY CHRISTMAS!!"
+        let response2 = SKLabelNode(fontNamed: "SignPainter")
+        response2.fontSize = 80
+        response2.fontColor = .black
+        response2.zPosition = 11        // Make sure text appears in front of other nodes
+        response2.text = "MERRY CHRISTMAS!!"
         response2.position = CGPoint(x: self.size.width / 2 - 100, y: self.size.height / 2 - 100)
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
             self.addChild(response2)
-            }
+        }
         
         //Add penguin's response3
-               
-                   let response3 = SKLabelNode(fontNamed: "SignPainter")
-                   response3.fontSize = 80
-                   response3.fontColor = .green
-                   response3.zPosition = 11
-                   response3.text = "MERRY CHRISTMAS!!"
-               response3.position = CGPoint(x: self.size.width / 2 - 105, y: self.size.height / 2 - 95)
-                   
-                   DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
-                   self.addChild(response3)
-                   }
-     
+        
+        let response3 = SKLabelNode(fontNamed: "SignPainter")
+        response3.fontSize = 80
+        response3.fontColor = .green
+        response3.zPosition = 11
+        response3.text = "MERRY CHRISTMAS!!"
+        response3.position = CGPoint(x: self.size.width / 2 - 105, y: self.size.height / 2 - 95)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
+            self.addChild(response3)
+        }
         
         
-                // Get a reference to the mp3 file in the app bundle
-                let backgroundMusicFilePath = Bundle.main.path(forResource: "sleigh-bells-excerpt.mp3", ofType: nil)!
         
-                // Convert the file path string to a URL (Uniform Resource Locator)
-                let backgroundMusicFileURL = URL(fileURLWithPath: backgroundMusicFilePath)
+        // Get a reference to the mp3 file in the app bundle
+        let backgroundMusicFilePath = Bundle.main.path(forResource: "sleigh-bells-excerpt.mp3", ofType: nil)!
         
-                // Attempt to open and play the file at the given URL
-                do {
-                    backgroundMusic = try AVAudioPlayer(contentsOf: backgroundMusicFileURL)
-                    backgroundMusic?.play()
-                } catch {
-                    // Do nothing if the sound file could not be played
-                }
+        // Convert the file path string to a URL (Uniform Resource Locator)
+        let backgroundMusicFileURL = URL(fileURLWithPath: backgroundMusicFilePath)
         
-            }
-        
-        
+        // Attempt to open and play the file at the given URL
+        do {
+            backgroundMusic = try AVAudioPlayer(contentsOf: backgroundMusicFileURL)
+            backgroundMusic?.play()
+        } catch {
+            // Do nothing if the sound file could not be played
+        }
         
     }
     
+    
+    
+}
+
 
