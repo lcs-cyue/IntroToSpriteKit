@@ -202,7 +202,7 @@ class GameScene: SKScene {
         }
         
         //Add fire
-        DispatchQueue.main.asyncAfter(deadline: .now() + 11.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 11.5) {
         if let fire = SKEmitterNode(fileNamed: "Fire.sks") {
             fire.position = CGPoint(x: self.size.width / 2 + 170, y: self.size.height / 2)
             fire.zPosition = 12
@@ -218,7 +218,7 @@ class GameScene: SKScene {
         exw.text = "Brought to you by - Chelsea"
         exw.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 11.3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 11.8) {
             self.addChild(exw)
         }
         
@@ -230,7 +230,7 @@ class GameScene: SKScene {
         exw2.text = "A member of the AP computer science class"
         exw2.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2 - 100)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 11.3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 11.8) {
             self.addChild(exw2)
         }
         
@@ -288,7 +288,7 @@ class GameScene: SKScene {
         response2.fontColor = .black
         response2.zPosition = 11        // Make sure text appears in front of other nodes
         response2.text = "MERRY CHRISTMAS!!"
-        response2.position = CGPoint(x: self.size.width / 2 - 100, y: self.size.height / 2 - 100)
+        response2.position = CGPoint(x: self.size.width / 2 - 70, y: self.size.height / 2 - 90)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
             self.addChild(response2)
@@ -301,7 +301,7 @@ class GameScene: SKScene {
         response3.fontColor = .green
         response3.zPosition = 11
         response3.text = "MERRY CHRISTMAS!!"
-        response3.position = CGPoint(x: self.size.width / 2 - 105, y: self.size.height / 2 - 95)
+        response3.position = CGPoint(x: self.size.width / 2 - 75, y: self.size.height / 2 - 83)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
             self.addChild(response3)
