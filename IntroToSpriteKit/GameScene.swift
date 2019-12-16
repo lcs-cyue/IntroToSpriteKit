@@ -188,118 +188,6 @@ class GameScene: SKScene {
         gift8.run(sequenceMoveRightShortDelay)
         
         
-        //falling gifts - add gravity & movement & delay
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-//            //gift1
-//            for x in 0...3 {
-//                let gift1 = SKSpriteNode(imageNamed: "gift1")
-//                gift1.position = CGPoint(x: gift1.size.width / 2 + CGFloat(x) * gift1.size.width , y: self.size.height)
-//                gift1.zPosition = 2
-//                self.addChild(gift1)
-//                gift1.physicsBody = SKPhysicsBody(circleOfRadius: gift1.size.width * 0.4)
-//
-//            }
-//        }
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
-//            //gift2
-//            for x in 0...2 {
-//                let gift2 = SKSpriteNode(imageNamed: "gift2")
-//                gift2.position = CGPoint(x: gift2.size.width / 2 + CGFloat(x) * gift2.size.width , y: self.size.height)
-//                gift2.zPosition = 2
-//                self.addChild(gift2)
-//                gift2.physicsBody = SKPhysicsBody(circleOfRadius: gift2.size.width * 0.4)
-//
-//            }
-//        }
-//
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-//            //gift3
-//            for x in 0...3 {
-//                let gift3 = SKSpriteNode(imageNamed: "gift3")
-//                gift3.position = CGPoint(x: gift3.size.width / 2 + CGFloat(x) * gift3.size.width , y: self.size.height)
-//                gift3.zPosition = 2
-//                self.addChild(gift3)
-//                gift3.physicsBody = SKPhysicsBody(circleOfRadius: gift3.size.width * 0.4)
-//
-//            }
-//        }
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 3.1) {
-//            //gift4
-//            for x in 0...4 {
-//                let gift4 = SKSpriteNode(imageNamed: "gift4")
-//                gift4.position = CGPoint(x: gift4.size.width / 2 + CGFloat(x) * gift4.size.width , y: self.size.height)
-//                gift4.zPosition = 2
-//                self.addChild(gift4)
-//                gift4.physicsBody = SKPhysicsBody(circleOfRadius: gift4.size.width * 0.4)
-//
-//            }
-//        }
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-//            //gift5
-//            for x in 0...2 {
-//                let gift5 = SKSpriteNode(imageNamed: "gift5")
-//                gift5.position = CGPoint(x: gift5.size.width / 2 + CGFloat(x) * gift5.size.width , y: self.size.height)
-//                gift5.zPosition = 2
-//                self.addChild(gift5)
-//                gift5.physicsBody = SKPhysicsBody(circleOfRadius: gift5.size.width * 0.4)
-//
-//            }
-//        }
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 4.2) {
-//            //gift6
-//            for x in 0...3 {
-//                let gift6 = SKSpriteNode(imageNamed: "gift6")
-//                gift6.position = CGPoint(x: gift6.size.width / 2 + CGFloat(x) * gift6.size.width , y: self.size.height)
-//                gift6.zPosition = 2
-//                self.addChild(gift6)
-//                gift6.physicsBody = SKPhysicsBody(circleOfRadius: gift6.size.width * 0.4)
-//
-//            }
-//        }
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 4.9) {
-//            //gift7
-//            for x in 0...2 {
-//                let gift7 = SKSpriteNode(imageNamed: "gift7")
-//                gift7.position = CGPoint(x: gift7.size.width / 2 + CGFloat(x) * gift7.size.width , y: self.size.height)
-//                gift7.zPosition = 2
-//                self.addChild(gift7)
-//                gift7.physicsBody = SKPhysicsBody(circleOfRadius: gift7.size.width * 0.4)
-//
-//            }
-//        }
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-//            //gift8
-//            for x in 0...1 {
-//                let gift8 = SKSpriteNode(imageNamed: "gift8")
-//                gift8.position = CGPoint(x: gift8.size.width / 2 + CGFloat(x) * gift8.size.width , y: self.size.height)
-//                gift8.zPosition = 2
-//                sleep(4)
-//                self.addChild(gift8)
-//                gift8.physicsBody = SKPhysicsBody(circleOfRadius: gift8.size.width * 0.4)
-//
-//            }
-//        }
-        
-        
-        
-        
-        //        //Repeat the function "addGifts"
-        //        let actionAddGifts = SKAction.run(addGifts)
-        //        let actionWait = SKAction.wait(forDuration: 2)
-        //        let sequenceAddGiftsThenWait = SKAction.sequence([actionAddGifts, actionWait])
-        //        let actionRepeatlyAddGifts = SKAction.repeat(sequenceAddGiftsThenWait, count: 4)
-        //        self.run(actionRepeatlyAddGifts)
-        //
-        
-        
-        
         
         //Add snow
         if let snow = SKEmitterNode(fileNamed: "snow.sks") {
@@ -317,7 +205,7 @@ class GameScene: SKScene {
         //Add penguin
         DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
         let penguin = SKSpriteNode(imageNamed: "penguin")
-        penguin.position = CGPoint(x: penguin.size.width / 2, y: penguin.size.height / 2)
+        penguin.position = CGPoint(x: penguin.size.width / 2, y: 300)
         penguin.physicsBody = SKPhysicsBody(texture: penguin.texture!,alphaThreshold: 0.5,size: penguin.size)
         self.addChild(penguin)
         
@@ -364,11 +252,11 @@ class GameScene: SKScene {
         //Add penguin's response2
         
             let response2 = SKLabelNode(fontNamed: "SignPainter")
-            response2.fontSize = 75
+            response2.fontSize = 80
             response2.fontColor = .black
             response2.zPosition = 11        // Make sure text appears in front of other nodes
             response2.text = "MERRY CHRISTMAS!!"
-        response2.position = CGPoint(x: self.size.width / 2 - 100, y: self.size.height / 2 - 105)
+        response2.position = CGPoint(x: self.size.width / 2 - 100, y: self.size.height / 2 - 100)
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
             self.addChild(response2)
@@ -377,36 +265,36 @@ class GameScene: SKScene {
         //Add penguin's response3
                
                    let response3 = SKLabelNode(fontNamed: "SignPainter")
-                   response3.fontSize = 75
-                   response3.fontColor = .yellow
+                   response3.fontSize = 80
+                   response3.fontColor = .green
                    response3.zPosition = 11
                    response3.text = "MERRY CHRISTMAS!!"
-               response3.position = CGPoint(x: self.size.width / 2 - 105, y: self.size.height / 2 - 100)
+               response3.position = CGPoint(x: self.size.width / 2 - 105, y: self.size.height / 2 - 95)
                    
                    DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
                    self.addChild(response3)
                    }
      
         
-        //
-        //        // Get a reference to the mp3 file in the app bundle
-        //        let backgroundMusicFilePath = Bundle.main.path(forResource: "sleigh-bells-excerpt.mp3", ofType: nil)!
-        //
-        //        // Convert the file path string to a URL (Uniform Resource Locator)
-        //        let backgroundMusicFileURL = URL(fileURLWithPath: backgroundMusicFilePath)
-        //
-        //        // Attempt to open and play the file at the given URL
-        //        do {
-        //            backgroundMusic = try AVAudioPlayer(contentsOf: backgroundMusicFileURL)
-        //            backgroundMusic?.play()
-        //        } catch {
-        //            // Do nothing if the sound file could not be played
-        //        }
-        //
-        //    }
-        //
-        //
+        
+                // Get a reference to the mp3 file in the app bundle
+                let backgroundMusicFilePath = Bundle.main.path(forResource: "sleigh-bells-excerpt.mp3", ofType: nil)!
+        
+                // Convert the file path string to a URL (Uniform Resource Locator)
+                let backgroundMusicFileURL = URL(fileURLWithPath: backgroundMusicFilePath)
+        
+                // Attempt to open and play the file at the given URL
+                do {
+                    backgroundMusic = try AVAudioPlayer(contentsOf: backgroundMusicFileURL)
+                    backgroundMusic?.play()
+                } catch {
+                    // Do nothing if the sound file could not be played
+                }
+        
+            }
+        
+        
         
     }
     
-}
+
