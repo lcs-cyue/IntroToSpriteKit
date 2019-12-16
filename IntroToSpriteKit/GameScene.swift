@@ -275,7 +275,7 @@ class GameScene: SKScene {
         response.fontColor = .yellow
         response.zPosition = 10
         response.text = "I brought you some!  (´･◡･`)"
-        response.position = CGPoint(x: self.size.width / 2 - 100, y: 150)
+        response.position = CGPoint(x: self.size.width / 2 - 100, y: 230)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 9.0) {
             self.addChild(response)
@@ -288,7 +288,7 @@ class GameScene: SKScene {
         response2.fontColor = .black
         response2.zPosition = 11        // Make sure text appears in front of other nodes
         response2.text = "MERRY CHRISTMAS!!"
-        response2.position = CGPoint(x: self.size.width / 2 - 70, y: self.size.height / 2 - 90)
+        response2.position = CGPoint(x: self.size.width / 2 - 70, y: self.size.height / 2 + 120)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
             self.addChild(response2)
@@ -298,10 +298,10 @@ class GameScene: SKScene {
         
         let response3 = SKLabelNode(fontNamed: "SignPainter")
         response3.fontSize = 80
-        response3.fontColor = .green
+        response3.fontColor = .yellow
         response3.zPosition = 11
         response3.text = "MERRY CHRISTMAS!!"
-        response3.position = CGPoint(x: self.size.width / 2 - 75, y: self.size.height / 2 - 83)
+        response3.position = CGPoint(x: self.size.width / 2 - 75, y: self.size.height / 2 + 113)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
             self.addChild(response3)
