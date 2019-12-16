@@ -117,7 +117,7 @@ class GameScene: SKScene {
         self.addChild(gift8)
         
         //Add gravity
-//        gift1.physicsBody = SKPhysicsBody(circleOfRadius: gift1.size.width * 0.4)
+        gift1.physicsBody = SKPhysicsBody(circleOfRadius: gift1.size.width * 0.4)
         gift2.physicsBody = SKPhysicsBody(circleOfRadius: gift2.size.width * 0.2)
         gift3.physicsBody = SKPhysicsBody(circleOfRadius: gift3.size.width * 0.3)
         gift4.physicsBody = SKPhysicsBody(circleOfRadius: gift4.size.width * 0.2)
@@ -128,9 +128,11 @@ class GameScene: SKScene {
         
       
         
-        //falling gifts - add gravity and movement
+        //falling gifts - add gravity & movement & delay
+        
+         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
         //gift1
-        for x in 0...6 {
+        for x in 0...3 {
             let gift1 = SKSpriteNode(imageNamed: "gift1")
             gift1.position = CGPoint(x: gift1.size.width / 2 + CGFloat(x) * gift1.size.width , y: self.size.height)
             gift1.zPosition = 2
@@ -138,19 +140,24 @@ class GameScene: SKScene {
             gift1.physicsBody = SKPhysicsBody(circleOfRadius: gift1.size.width * 0.4)
             gift1.run(sequenceMoveLeftShortDelay)
         }
-        
-        //gift2
-        for x in 0...6 {
-            let gift2 = SKSpriteNode(imageNamed: "gift2")
-            gift2.position = CGPoint(x: gift2.size.width / 2 + CGFloat(x) * gift2.size.width , y: self.size.height)
-            gift2.zPosition = 2
-            self.addChild(gift2)
-            gift2.physicsBody = SKPhysicsBody(circleOfRadius: gift2.size.width * 0.4)
-            gift2.run(sequenceMoveUpShortDelay)
         }
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
+            //gift2
+            for x in 0...2 {
+                let gift2 = SKSpriteNode(imageNamed: "gift2")
+                gift2.position = CGPoint(x: gift2.size.width / 2 + CGFloat(x) * gift2.size.width , y: self.size.height)
+                gift2.zPosition = 2
+                self.addChild(gift2)
+                gift2.physicsBody = SKPhysicsBody(circleOfRadius: gift2.size.width * 0.4)
+                gift2.run(sequenceMoveUpShortDelay)
+            }
+        }
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
         //gift3
-        for x in 0...6 {
+        for x in 0...3 {
             let gift3 = SKSpriteNode(imageNamed: "gift3")
             gift3.position = CGPoint(x: gift3.size.width / 2 + CGFloat(x) * gift3.size.width , y: self.size.height)
             gift3.zPosition = 2
@@ -158,9 +165,11 @@ class GameScene: SKScene {
             gift3.physicsBody = SKPhysicsBody(circleOfRadius: gift3.size.width * 0.4)
             gift3.run(sequenceMoveRightShortDelay)
         }
+        }
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.1) {
         //gift4
-        for x in 0...6 {
+        for x in 0...4 {
             let gift4 = SKSpriteNode(imageNamed: "gift4")
             gift4.position = CGPoint(x: gift4.size.width / 2 + CGFloat(x) * gift4.size.width , y: self.size.height)
             gift4.zPosition = 2
@@ -168,9 +177,11 @@ class GameScene: SKScene {
             gift4.physicsBody = SKPhysicsBody(circleOfRadius: gift4.size.width * 0.4)
             gift4.run(sequenceMoveUpShortDelay)
         }
+        }
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
         //gift5
-        for x in 0...6 {
+        for x in 0...2 {
             let gift5 = SKSpriteNode(imageNamed: "gift5")
             gift5.position = CGPoint(x: gift5.size.width / 2 + CGFloat(x) * gift5.size.width , y: self.size.height)
             gift5.zPosition = 2
@@ -178,9 +189,11 @@ class GameScene: SKScene {
             gift5.physicsBody = SKPhysicsBody(circleOfRadius: gift5.size.width * 0.4)
             gift5.run(sequenceMoveRightShortDelay)
         }
+        }
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.2) {
         //gift6
-        for x in 0...6 {
+        for x in 0...3 {
             let gift6 = SKSpriteNode(imageNamed: "gift6")
             gift6.position = CGPoint(x: gift6.size.width / 2 + CGFloat(x) * gift6.size.width , y: self.size.height)
             gift6.zPosition = 2
@@ -188,9 +201,11 @@ class GameScene: SKScene {
             gift6.physicsBody = SKPhysicsBody(circleOfRadius: gift6.size.width * 0.4)
             gift6.run(sequenceMoveLeftShortDelay)
         }
+        }
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.9) {
         //gift7
-        for x in 0...6 {
+        for x in 0...2 {
             let gift7 = SKSpriteNode(imageNamed: "gift7")
             gift7.position = CGPoint(x: gift7.size.width / 2 + CGFloat(x) * gift7.size.width , y: self.size.height)
             gift7.zPosition = 2
@@ -198,9 +213,10 @@ class GameScene: SKScene {
             gift7.physicsBody = SKPhysicsBody(circleOfRadius: gift7.size.width * 0.4)
             gift7.run(sequenceMoveUpShortDelay)
         }
-      
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
         //gift8
-        for x in 0...6 {
+        for x in 0...1 {
             let gift8 = SKSpriteNode(imageNamed: "gift8")
             gift8.position = CGPoint(x: gift8.size.width / 2 + CGFloat(x) * gift8.size.width , y: self.size.height)
             gift8.zPosition = 2
@@ -208,6 +224,7 @@ class GameScene: SKScene {
             self.addChild(gift8)
             gift8.physicsBody = SKPhysicsBody(circleOfRadius: gift8.size.width * 0.4)
             gift8.run(sequenceMoveRightShortDelay)
+        }
         }
         
         
