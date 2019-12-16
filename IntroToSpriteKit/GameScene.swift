@@ -49,11 +49,11 @@ class GameScene: SKScene {
         let question = SKLabelNode(fontNamed: "Helvetica Neue bold")
         question.fontSize = 20
         question.fontColor = .white
-        question.zPosition = 10        // Make sure text appears in front of other nodes
+        question.zPosition = 0        // Make sure text appears behind the gift
         question.text = "Huh??"
         question.position = CGPoint(x: 450, y: self.size.height / 2)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
             self.addChild(question)
         }
         
@@ -139,11 +139,11 @@ class GameScene: SKScene {
             self.addChild(gift1)
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.3) {
             self.addChild(gift2)
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.7) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.9) {
             self.addChild(gift3)
         }
         
@@ -204,7 +204,7 @@ class GameScene: SKScene {
         //Add fire
         DispatchQueue.main.asyncAfter(deadline: .now() + 11.0) {
         if let fire = SKEmitterNode(fileNamed: "Fire.sks") {
-            fire.position = CGPoint(x: self.size.width / 2 + 100, y: self.size.height / 2)
+            fire.position = CGPoint(x: self.size.width / 2 + 170, y: self.size.height / 2)
             fire.zPosition = 12
         self.addChild(fire)
         }
@@ -237,7 +237,7 @@ class GameScene: SKScene {
         //Add penguin
         DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
             let penguin = SKSpriteNode(imageNamed: "penguin")
-            penguin.position = CGPoint(x: penguin.size.width / 2, y: 300)
+            penguin.position = CGPoint(x: penguin.size.width / 2, y: 500)
             penguin.physicsBody = SKPhysicsBody(texture: penguin.texture!,alphaThreshold: 0.5,size: penguin.size)
             self.addChild(penguin)
             
