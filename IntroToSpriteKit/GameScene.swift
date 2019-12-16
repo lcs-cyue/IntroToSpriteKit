@@ -99,7 +99,7 @@ class GameScene: SKScene {
         
         //Add the 2nd gift box
         let gift2 = SKSpriteNode(imageNamed: "gift2")
-        gift2.position = CGPoint(x: 400, y: self.size.height)
+        gift2.position = CGPoint(x: 450, y: self.size.height)
         
         
         //Add the 3rd gift box
@@ -109,12 +109,12 @@ class GameScene: SKScene {
         
         //Add the 4th gift box
         let gift4 = SKSpriteNode(imageNamed: "gift4")
-        gift4.position = CGPoint(x: 350, y: self.size.height)
+        gift4.position = CGPoint(x: 550, y: self.size.height)
         
         
         //Add the 5th gift box
         let gift5 = SKSpriteNode(imageNamed: "gift5")
-        gift5.position = CGPoint(x: 200, y: self.size.height)
+        gift5.position = CGPoint(x: 700, y: self.size.height)
         
         
         //Add the 6th gift box
