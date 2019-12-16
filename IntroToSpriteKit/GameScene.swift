@@ -130,12 +130,12 @@ class GameScene: SKScene {
             
         }
         
-        let actionAddGifts = SKAction.run(addGifts)
-        
-        let actionWait = SKAction.wait(forDuration: 2)
-        let sequenceAddGiftsThenWait = SKAction.sequence([actionAddGifts, actionWait])
-        let actionRepeatlyAddGifts = SKAction.repeat(sequenceAddGiftsThenWait, count: 100)
-        self.run(actionRepeatlyAddGifts)
+//        //Repeat the function "addGifts"
+//        let actionAddGifts = SKAction.run(addGifts)
+//        let actionWait = SKAction.wait(forDuration: 2)
+//        let sequenceAddGiftsThenWait = SKAction.sequence([actionAddGifts, actionWait])
+//        let actionRepeatlyAddGifts = SKAction.repeat(sequenceAddGiftsThenWait, count: 4)
+//        self.run(actionRepeatlyAddGifts)
         
         //Move the gifts
         gift1.run(sequenceMoveLeftShortDelay)
@@ -146,6 +146,7 @@ class GameScene: SKScene {
         gift6.run(sequenceMoveLeftShortDelay)
         gift7.run(sequenceMoveUpShortDelay)
         gift8.run(sequenceMoveRightShortDelay)
+        
         
         //Add snow
         if let snow = SKEmitterNode(fileNamed: "snow.sks") {
@@ -158,6 +159,38 @@ class GameScene: SKScene {
             fireflies.position = CGPoint(x: 400, y: -250)
             self.addChild(fireflies)
         }
+        
+        //Add penguin
+        let penguin = SKSpriteNode(imageNamed: "penguin")
+        penguin.position = CGPoint(x: penguin.size.width / 2, y: penguin.size.height / 2)
+        penguin.physicsBody = SKPhysicsBody(texture: penguin.texture!,alphaThreshold: 0.5,size: penguin.size)
+        self.addChild(penguin)
+        
+        // Animation using the penguin sprites array
+        var walkingTextures: [SKTexture] = []
+        walkingTextures.append(SKTexture(imageNamed: "PR"))
+        walkingTextures.append(SKTexture(imageNamed: "PL"))
+        
+        // Create an action to animate a walking motion  (walkingTextures)
+        let actionWalkingAnimation = SKAction.animate(with: walkingTextures, timePerFrame: 0.2, resize: true, restore: true)
+
+        // Create an action that moves the penguin forward a "step" where a step is 10 pixels
+        // NOTE: The time interval for moving forward matches the time per frame of the animation
+        let actionMoveForward = SKAction.moveBy(x: 10, y: 0, duration: 0.2)
+
+        // Repeat the move forward action twice
+        let actionMoveForwardTwice = SKAction.repeat(actionMoveForward, count: 100)
+
+        // Now, combine the walking animation with the sprite moving forward
+        let actionWalkAndMove = SKAction.group([actionWalkingAnimation, actionMoveForwardTwice])
+
+        // Repeat the "walk and move" action five times
+        let actionWalkAndMoveFiveTimes = SKAction.repeat(actionWalkAndMove, count: 5)
+
+        // Make the penguin walk and move forward five times
+        penguin.run(actionWalkAndMoveFiveTimes)
+
+        
         
         
         // Get a reference to the mp3 file in the app bundle
